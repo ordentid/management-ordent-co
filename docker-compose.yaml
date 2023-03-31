@@ -1,39 +1,20 @@
 services:
   web:
     image: odoo:16.0
-    # depends_on:
-    #   - db
     ports:
-      - "80:8069"
+      - "8069:8069"
     volumes:
       - /data/container/data:/var/lib/odoo
       - ./config:/etc/odoo
-      - /data/container/addons:/mnt/extra-addons
-    # environment:
-    #   - DB_PORT_5432_TCP_ADDR=ordent-postgresql-shibuya.cmphg8zikgos.ap-southeast-1.rds.amazonaws.com
-    #   - DB_PORT_5432_TCP_PORT=5432
-    #   - DB_ENV_POSTGRES_USER=ordent
-    #   - DB_ENV_POSTGRES_PASSWORD=iYnM8ym3qqmEAvln91mdx
-    # - POSTGRES_DB=postgres
-    # - POSTGRES_PASSWORD=ordent1234!
-    # - POSTGRES_USER=ordent
-    # - HOST=ordent-postgresql-shibuya.cmphg8zikgos.ap-southeast-1.rds.amazonaws.com
-    # - USER=ordent
-    # - PASSWORD=iYnM8ym3qqmEAvln91mdx
-  # db:
-  #   image: postgres:13
-  #   environment:
-  #     - POSTGRES_DB=postgres
-  #     - POSTGRES_PASSWORD=ordent1234!
-  #     - POSTGRES_USER=ordent
-  # nginx:
-  #   image: nginx:1.23-alpine
-  #   depends_on:
-  #     - web
-  #   container_name: nginx-odoo
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d
-  #     - ./cert:/etc/nginx/cert
-  #   ports:
-  #     - 80:80
-  #     - 443:443
+      - ./addons:/mnt/extra-addons
+  nginx:
+    image: nginx:1.23-alpine
+    depends_on:
+      - web
+    container_name: nginx-odoo
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./cert:/etc/nginx/cert
+    ports:
+      - 80:80
+      - 443:443
