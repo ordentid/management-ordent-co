@@ -1,15 +1,19 @@
 services:
   web:
     image: odoo:16.0
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     ports:
       - "80:8069"
-    environment:
-      - DB_PORT_5432_TCP_ADDR=ordent-postgresql-shibuya.cmphg8zikgos.ap-southeast-1.rds.amazonaws.com
-      - DB_PORT_5432_TCP_PORT=5432
-      - DB_ENV_POSTGRES_USER=ordent
-      - DB_ENV_POSTGRES_PASSWORD=iYnM8ym3qqmEAvln91mdx
+    volumes:
+      - /data/container/data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - /data/container/addons:/mnt/extra-addons
+    # environment:
+    #   - DB_PORT_5432_TCP_ADDR=ordent-postgresql-shibuya.cmphg8zikgos.ap-southeast-1.rds.amazonaws.com
+    #   - DB_PORT_5432_TCP_PORT=5432
+    #   - DB_ENV_POSTGRES_USER=ordent
+    #   - DB_ENV_POSTGRES_PASSWORD=iYnM8ym3qqmEAvln91mdx
     # - POSTGRES_DB=postgres
     # - POSTGRES_PASSWORD=ordent1234!
     # - POSTGRES_USER=ordent
