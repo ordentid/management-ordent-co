@@ -4,7 +4,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8069:8069"
+      - "80:8069"
     environment:
     - HOST=db
     - USER=ordent
@@ -15,14 +15,14 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=ordent1234!
       - POSTGRES_USER=ordent
-  nginx:
-    image: nginx:1.23-alpine
-    depends_on:
-      - web
-    container_name: nginx-odoo
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./cert:/etc/nginx/cert
-    ports:
-      - 80:80
-      - 443:443
+  # nginx:
+  #   image: nginx:1.23-alpine
+  #   depends_on:
+  #     - web
+  #   container_name: nginx-odoo
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d
+  #     - ./cert:/etc/nginx/cert
+  #   ports:
+  #     - 80:80
+  #     - 443:443
