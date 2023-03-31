@@ -6,15 +6,15 @@ services:
     ports:
       - "80:8069"
     environment:
-    - HOST=db
+    - HOST=ordent-postgresql-shibuya.cmphg8zikgos.ap-southeast-1.rds.amazonaws.com
     - USER=ordent
-    - PASSWORD=ordent1234!
-  db:
-    image: postgres:13
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=ordent1234!
-      - POSTGRES_USER=ordent
+    - PASSWORD=iYnM8ym3qqmEAvln91md
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_PASSWORD=ordent1234!
+  #     - POSTGRES_USER=ordent
   # nginx:
   #   image: nginx:1.23-alpine
   #   depends_on:
