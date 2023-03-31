@@ -1,0 +1,17 @@
+services:
+  web:
+    image: odoo:14.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    environment:
+    - HOST=db
+    - USER=ordent
+    - PASSWORD=ordent1234!
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=ordent1234!
+      - POSTGRES_USER=ordent
