@@ -75,6 +75,7 @@ TnxoVwkIiVR+Sa/hb/v3QUqRDqsAjQmaZHcjkJbHDHiSh/ypewVWSKyhBcpCxyYm
 ujEhloKrXgvAbYF2/wUISd+nQabmnCgLTW2U+zAGnbkGNsK6ayv8VMd4M3CFnkCn
 UXUOE2S81Ho66uq4U49gqDAeBoxNd+2iz+BdEJdqiajQvxRyHz//9ZmRKxe+Yg==
 -----END RSA PRIVATE KEY-----" >> /home/ec2-user/.ssh/id_rsa
+  sudo chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa
 sudo chmod 400 /home/ec2-user/.ssh/id_rsa
 eval "$(ssh-agent -s)"
 cd /data/hub-ordent-co
