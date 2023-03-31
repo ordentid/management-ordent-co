@@ -11,9 +11,9 @@ sudo mkdir -p /usr/local/lib/docker/cli-plugins/
 sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 OUTPUT=$(curl http://169.254.169.254/latest/meta-data/instance-id)
-aws ec2 attach-volume --volume-id vol-0a358d823e912cab2 --device /dev/sdb --instance-id $OUTPUT --region ap-southeast-1
-aws ec2 associate-address --instance-id $OUTPUT --allocation-id eipalloc-07f53899e6241d927 --allow-reassociation --region ap-southeast-1
-aws ec2 create-tags --resources $OUTPUT --tags Key=Name,Value=hub.ordent.co
+aws ec2 attach-volume --volume-id vol-0ed34e34266c2400e --device /dev/sdb --instance-id $OUTPUT --region ap-southeast-1
+aws ec2 associate-address --instance-id $OUTPUT --allocation-id eipalloc-0d2eb72e57c53584a --allow-reassociation --region ap-southeast-1
+aws ec2 create-tags --resources $OUTPUT --tags Key=Name,Value=management.ordent.co
 sudo mkdir /data
 sudo mount /dev/nvme1n1 /data
 sudo mkdir -p /data/docker
