@@ -78,5 +78,5 @@ UXUOE2S81Ho66uq4U49gqDAeBoxNd+2iz+BdEJdqiajQvxRyHz//9ZmRKxe+Yg==
   sudo chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa
 sudo chmod 400 /home/ec2-user/.ssh/id_rsa
 eval "$(ssh-agent -s)"
-cd /data/hub-ordent-co
+cd /data/repo
 sudo docker compose up -d
